@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+:root {
+  --primary: 42, 62%, 69%;
+  --cracker: 28, 60%, 64%;
+  --cracker-dark: 28, 60%, 50%;
+  --marshmallow: 0, 0%, 100%; /* Adjusted for a cleaner, pure white */
+  --marshmallow-dark: 240, 25%, 95%; /* Slightly off-white for depth */
+  --chocolate: 24, 36%, 46%;
+  --chocolate-dark: 29, 41%, 24%;
+}
+
+body {
+  font-family: "Rubik";
+  background: hsla(var(--primary), 1);
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+body:before {
+  content: "CSS'SMORE";
+  font-weight: 800;
+  position: fixed;
+  font-size: 8em;
+  top: 0em;
+  opacity: 0.05;
+  letter-spacing: -0.07em;
+}
+
+body:after {
+  content: "#DEVCHALLENGE";
+  font-weight: 800;
+  position: fixed;
+  font-size: 8em;
+  bottom: 0em;
+  opacity: 0.05;
+  letter-spacing: -0.07em;
+}
+
+.visuallyhidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.smore-container {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 1000px;
+  /* transform: scale(1.2); */
+}
+
+.smore {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4em;
+  perspective: 20em;
+}
+
+.smore > div {
+  box-shadow: 0px 1em 1em rgba(0, 0, 0, 0.1);
+}
+
+.graham-cracker {
+  position: relative;
+  width: 8em;
+  height: 8em;
+  background-color: hsla(var(--cracker), 1);
+  border-radius: 4px;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 0 0 black;
+  background-image: linear-gradient(
+      to right,
+      #da9f6c 0,
+      #c78a59 5px,
+      transparent 5px
+    ),
+    linear-gradient(to bottom, #da9f6c 0, #c78a59 5px, transparent 5px),
+    linear-gradient(to left, #e4b07a 5px, transparent 5px),
+    linear-gradient(to top, #e4b07a 5px, transparent 5px);
+}
+
+.graham-cracker:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='2' fill='%23000'/%3E%3C/svg%3E");
+  mask-position: center center;
+  background: hsla(var(--cracker-dark), 0.3);
+  mix-blend-mode: multiply;
+}
+
+.graham-cracker.top {
+  position: absolute;
+  transform: translateX(-18em) translateY(0) translateZ(0) rotate(45deg);
+  z-index: 4;
+}
+
+.graham-cracker.bottom {
+  position: absolute;
+  transform: translateX(18em) translateY(0) translateZ(0) rotate(45deg);
+  z-index: 0;
+}
+
+.chocolate {
+  position: absolute;
+  width: 9em;
+  height: 9em;
+  background-color: hsla(var(--chocolate), 1);
+  border-radius: 2px;
+  margin: 5px 0;
+  transform: translateX(-6em) translateY(0) translateZ(10px);
+  transition: all 1s ease-in-out;
+  z-index: 2;
+  box-shadow: 0 0 0 black;
+  background-color: #9e6c4b;
+  background-image: linear-gradient(
+      to right,
+      #9e6c4b 0,
+      #7b543b 5px,
+      transparent 5px
+    ),
+    linear-gradient(to bottom, #9e6c4b 0, #7b543b 5px, transparent 5px),
+    linear-gradient(to left, #b68666 5px, transparent 5px),
+    linear-gradient(to top, #b68666 5px, transparent 5px);
+  background-size: 50% 50%;
+}
+
+.marshmallow {
+  transition: all 1s ease-in-out;
+  --r: 40px;
+  transform: rotateX(0) rotateY(0) translateX(6em) translateY(0) scale(0.9);
+  width: 9em;
+  height: 9em;
+  z-index: 1;
+  background: radial-gradient(
+      50% var(--r) at 50% var(--r),
+      #fff 99.99%,
+      #f3f3f3 0
+    ),
+    radial-gradient(
+      50% var(--r) at 50% calc(100% - var(--r)),
+      #fff3 99.99%,
+      #0000 0
+    ),
+    #369;
+  border-radius: 100% / calc(var(--r) * 2);
+}
+
+#toggle:checked ~ .smore-container .graham-cracker.top {
+  transform: scale(1.1) rotateX(50deg) rotateY(0deg) translatey(-5px);
+  transform-style: preserve-3d;
+  box-shadow: 0 6px 0 hsla(var(--cracker-dark), 1);
+}
+
+#toggle:checked ~ .smore-container .chocolate {
+  transform: rotateX(50deg) rotateY(0deg) scale(0.9) translateY(8px);
+  transform-style: preserve-3d;
+  box-shadow: 0 6px 0 hsla(var(--chocolate), 1);
+  border-radius: 5px;
+}
+
+#toggle:checked ~ .smore-container .marshmallow {
+  border-radius: 10px;
+  transform: rotateX(50deg) rotateY(0deg) scale(0.9) translatey(1.1em);
+  transform-style: preserve-3d;
+  border-radius: 5px;
+}
+
+#toggle:checked ~ .smore-container .graham-cracker.bottom {
+  transform: rotateX(50deg) rotateY(0deg) translateY(20px);
+  transform-style: preserve-3d;
+  box-shadow: 0 6px 0 hsla(var(--cracker-dark), 1);
+}
