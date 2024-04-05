@@ -1,0 +1,185 @@
+body {
+  background: darkslateblue;
+}
+
+.snack {
+  --cheese: #fad65e;
+  --dough: #ee871e;
+  --dough-dark: #9a1101;
+  --pepperoni: #fe5754;
+  --pepperoni-dark: #e81a1f;
+  --basil: #107805;
+  --basil-dark: #026103;
+  --shadow-dark: #0004;
+
+  font-size: 1vmin;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90em;
+  aspect-ratio: 3/2;
+}
+
+.pizza {
+  --width: 70vmin;
+  aspect-ratio: 2;
+  position: relative;
+  width: var(--width);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(30deg);
+}
+
+.dough {
+  position: absolute;
+  width: 70vmin;
+  aspect-ratio: 2;
+  background: var(--dough);
+  clip-path: polygon(25% 0, 100% 100%, 0 100%);
+  border-radius: 0 0 20% 20% / 100%;
+}
+.border {
+  position: absolute;
+  width: 10vmin;
+  aspect-ratio: 1/4;
+  background: var(--dough);
+  border-radius: 10vmin;
+  transform: translate(70%, -7%) rotate(27.5deg);
+  box-shadow: inset -0.5em 0px var(--shadow-dark);
+}
+.border::before,
+.border::after {
+  content: "";
+  position: absolute;
+}
+.border::before {
+  width: 90%;
+  aspect-ratio: 3/2;
+  border-radius: 50%;
+  left: 7%;
+  bottom: 1%;
+  background: radial-gradient(
+    circle at 69% 50%,
+    #0000 65%,
+    var(--dough-dark) 100%
+  );
+  border-left: 3px solid var(--dough-dark);
+}
+.border::after {
+  width: inherit;
+  aspect-ratio: inherit;
+  transform: scaleY(0.8);
+}
+.cheese {
+  position: absolute;
+  width: 90%;
+  aspect-ratio: 2;
+  background: var(--cheese);
+  clip-path: polygon(25% 0, 100% 100%, 0 100%);
+  transform: scale(0.95) translate(12.75%, 11.5%);
+  border-radius: 0 0 1.25em 0;
+}
+
+.melting {
+  /* Thanks to CSS-tricks for the help with this part (https://css-tricks.com/how-to-create-wavy-shapes-patterns-in-css/)   */
+  position: absolute;
+  width: 85%;
+  --size: 2.5em;
+  --m: 1.5;
+  --p: calc(var(--m) * var(--size));
+  --R: calc(var(--size) * sqrt(var(--m) * var(--m) + 1));
+
+  mask: radial-gradient(
+        var(--R) at 50% calc(100% - (var(--size) + var(--p))),
+        #000 99%,
+        #0000 101%
+      )
+      calc(50% - 2 * var(--size)) 0 / calc(4 * var(--size)) 100%,
+    radial-gradient(var(--R) at 50% calc(100% + var(--p)), #0000 99%, #000 101%)
+      50% calc(100% - var(--size)) / calc(4 * var(--size)) 100% repeat-x;
+  background: var(--cheese);
+  height: 4em;
+  position: relative;
+  top: 100%;
+  transform: translate(14.75%, -40%) rotate(0deg);
+  z-index: 2;
+  border-radius: 3.5em 50% 100% 100%;
+}
+
+.pepperoni {
+  position: absolute;
+  --size: 10vmin;
+  width: var(--size);
+  aspect-ratio: 3/2;
+  background: var(--pepperoni-dark);
+  border-radius: 50%;
+  box-shadow: 0 calc(var(--size) / 20) var(--shadow-dark),
+    0 calc(var(--size) / 20) var(--pepperoni-dark);
+  top: 70%;
+  left: 65%;
+  z-index: 2;
+}
+.pepperoni:nth-of-type(1) {
+  top: 45%;
+  left: 45%;
+}
+.pepperoni:nth-of-type(3) {
+  top: 60%;
+  left: 25%;
+}
+
+.basil {
+  position: absolute;
+  width: 2em;
+  aspect-ratio: 3/2;
+  background: var(--basil);
+  border-radius: 0 100%;
+  border: 1px solid var(--basil-dark);
+  left: 40%;
+  top: 50%;
+  z-index: 1;
+  box-shadow: 10em 8em var(--basil-dark), 29em 14em var(--basil),
+    8em 5em var(--basil-dark), 1.5em 13em var(--basil-dark),
+    -2em 6.5em 0 1.5px var(--basil);
+}
+
+.basil::before,
+.basil::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  width: inherit;
+  aspect-ratio: inherit;
+  border-radius: inherit;
+}
+
+.basil::before {
+  transform: translate(5em, 7.5em) rotate(-75deg);
+  box-shadow: 8em 8em var(--basil-dark), -8em -17em var(--basil-dark),
+    -3em 12.5em var(--basil-dark);
+}
+.basil::after {
+  transform: translate(-7.5em, -2.5em) rotate(45deg);
+  box-shadow: 25em -6.5em var(--basil), -2em -7.5em 0 1.5px var(--basil);
+}
+
+span.details {
+  position: absolute;
+  width: 25%;
+  aspect-ratio: 3/2;
+  background: var(--shadow-dark);
+  border-radius: 50%;
+
+  top: 15%;
+  left: 20%;
+  box-shadow: 0 calc(var(--size) / 30) var(--pepperoni);
+}
+.details:nth-child(1) {
+  top: 35%;
+  left: 65%;
+}
+.details:nth-child(2) {
+  top: 55%;
+  left: 35%;
+}
