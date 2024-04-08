@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <h1>Textarea character limit indicator</h1>
+    <div id="container">
+      <label for="txt">Type something:</label>
+      <textarea
+        name="type-something"
+        id="txt"
+        maxlength="150"
+        cols="30"
+        rows="10"
+      ></textarea>
+      <div id="progress">
+        <div id="progress-bar"></div>
+        <p id="remaining-chars"></p>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
