@@ -17,3 +17,5 @@
 <h4 dir="auto">5. Food</h4>
 <p dir="auto">- Slice of pizza: <a href="https://x2psq6.csb.app/" rel="nofollow">See it Live</a></p>
 <p dir="auto">- Favorite Snack: <a href="https://lmq559.csb.app/" rel="nofollow">See it Live</a></p>
+<h4 dir="auto">6. Spinner</h4>
+<p dir="auto">- Loading Spinner: <a href="https://x4xpfr.csb.app/" rel="nofollow">See it Live</a></p>
