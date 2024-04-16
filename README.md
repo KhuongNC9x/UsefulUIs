@@ -1,4 +1,4 @@
-**This is a list of website templates**
+**This is a list of useful UIs**
 <br>
 
 <h4 dir="auto">1. Blog and Magazine (News)!!!</h4>
