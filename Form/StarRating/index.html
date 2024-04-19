@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Multicolored Star Rating</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <span>&star;</span>
+      <h1>Interactive Star Rating</h1>
+      <span>&star;</span>
+    </header>
+
+    <main>
+      <div id="rating-card">
+        <div class="card front">
+          <h2>Please Rate Us</h2>
+
+          <div id="emoticon-container">&nbsp;</div>
+          <p id="satisfaction-text">&nbsp;</p>
+
+          <div id="rating-component-container">
+            <div class="filled-stars">
+              <span>&starf;</span>
+              <span>&starf;</span>
+              <span>&starf;</span>
+              <span>&starf;</span>
+              <span>&starf;</span>
+            </div>
+
+            <div id="blank-slider"></div>
+
+            <div class="empty-stars">
+              <span>&star;</span>
+              <span>&star;</span>
+              <span>&star;</span>
+              <span>&star;</span>
+              <span>&star;</span>
+            </div>
+          </div>
+
+          <input
+            type="number"
+            id="val"
+            step="0.1"
+            min="0"
+            max="10"
+            placeholder="1 - 10"
+          />
+          <button id="wr-btn">Write Review</button>
+        </div>
+        <div class="card back">
+          <span id="back-btn">⇦</span>
+          <h2>Write Review</h2>
+          <p>
+            Please share your thoughts about our app, so we can serve you
+            better.
+          </p>
+          <textarea
+            id="review-field"
+            placeholder="Write a review..."
+          ></textarea>
+          <button id="rate-us">Rate Us</button>
+        </div>
+      </div>
+
+      <div class="sent">
+        <h2>Review Sent!</h2>
+        <p>Thank you for rating us.</p>
+        <button id="go-back-btn">Go Back</button>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

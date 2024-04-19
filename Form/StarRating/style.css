@@ -1,0 +1,231 @@
+:root {
+  --lightBlue: #43a6c6;
+  --darkBlue: #03000f;
+  --darkGray: #333;
+  --starSize: 3.5em;
+}
+
+html {
+  background-color: var(--darkBlue);
+  color: whitesmoke;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  letter-spacing: 2px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  border-bottom: 2px solid;
+  background-color: var(--darkBlue);
+  text-shadow: 3px 3px 5px var(--lightBlue);
+  box-shadow: 10px 10px 20px -10px var(--lightBlue);
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+header > span {
+  font-size: 25px;
+  color: #ffee00;
+}
+
+main {
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+  perspective: 800px;
+}
+
+#rating-card {
+  position: relative;
+  box-shadow: 1px 1px 30px -1px var(--lightBlue);
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  transition: 2s;
+  min-width: 250px;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.card {
+  display: grid;
+  place-items: center;
+  padding: 25px 20px 40px;
+  background-color: var(--darkBlue);
+  border-radius: 20px;
+}
+
+.front {
+  backface-visibility: hidden;
+}
+
+.p-events {
+  pointer-events: none;
+}
+
+.back {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+
+#back-btn {
+  color: var(--lightBlue);
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-weight: 900;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#back-btn:hover {
+  transform: scale(1.2);
+}
+
+p {
+  padding: 10px;
+  color: #999;
+}
+
+.back textarea {
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 10px;
+  height: 100px;
+  color: #ccc;
+  width: 90%;
+  outline: none;
+  border: 2px solid var(--darkGray);
+  resize: none;
+  letter-spacing: 1.5px;
+  overflow: hidden;
+  font-weight: 100;
+  font-size: 12px;
+}
+
+h2 {
+  text-shadow: 1px 1px 3px var(--lightBlue);
+  margin-bottom: 10px;
+}
+
+#emoticon-container {
+  font-size: var(--starSize);
+  margin-bottom: 10px;
+}
+
+#rating-component-container {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+
+.filled-stars {
+  background-image: linear-gradient(to right, red 5%, yellow, #00ff00);
+  background-clip: text;
+  -webkit-background-clip: text;
+  transform: scale(1);
+}
+
+.filled-stars > span {
+  font-size: var(--starSize);
+  color: transparent;
+}
+
+#blank-slider {
+  background-color: var(--darkBlue);
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
+  width: 100%;
+  transition: 3s;
+}
+
+.empty-stars {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transform: scale(1);
+  transition: 1s;
+}
+
+.empty-stars > span {
+  color: var(--darkGray);
+  font-size: var(--starSize);
+  cursor: pointer;
+}
+
+#val {
+  background-color: transparent;
+  color: aliceblue;
+  outline: none;
+  padding: 8px;
+  margin-top: 15px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 2px solid var(--darkGray);
+  width: 80%;
+}
+
+#val:hover {
+  border: 2px solid var(--lightBlue);
+}
+
+.sent {
+  display: none;
+  place-items: center;
+}
+
+button {
+  margin-top: 30px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--lightBlue);
+  border: none;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.back > textarea:hover,
+button:hover {
+  box-shadow: 1px 1px 20px -1px var(--lightBlue);
+}
+
+/* Media query for mobile phones */
+@media screen and (max-width: 767px) {
+  :root {
+    --starSize: 2.5em;
+  }
+
+  h1,
+  h2 {
+    font-size: 1.2em;
+  }
+
+  .back > p,
+  #satisfaction-text,
+  button {
+    font-size: 0.7em;
+  }
+}
