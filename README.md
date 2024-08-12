@@ -15,6 +15,7 @@
 <p dir="auto">- Textarea character limit indicator: <a href="https://tn3r6d.csb.app/" rel="nofollow">See it Live</a></p>
 <p dir="auto">- Drag and Drop interface: <a href="https://cxry74.csb.app/" rel="nofollow">See it Live</a></p>
 <p dir="auto">- Interactive Multicolored Star Rating: <a href="https://z9k2nr.csb.app/" rel="nofollow">See it Live</a></p>
+<p dir="auto">- Magic Animation Button: <a href="https://klf648.csb.app/" rel="nofollow">See it Live</a></p>
 <h4 dir="auto">Food</h4>
 <p dir="auto">- Slice of pizza: <a href="https://x2psq6.csb.app/" rel="nofollow">See it Live</a></p>
 <p dir="auto">- Favorite Snack: <a href="https://lmq559.csb.app/" rel="nofollow">See it Live</a></p>
