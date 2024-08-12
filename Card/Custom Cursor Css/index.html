@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulate Body Cursor Movement</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        overflow: hidden; /* Hide scrollbars */
+        cursor: none; /* Hide the real cursor */
+      }
+
+      /* Fake cursor using an image */
+      #fakeCursor {
+        width: 72px;
+        height: 72px;
+        position: absolute;
+        background: url("1.png") no-repeat center center;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Wait 3 seconds and see the cursor change!</h1>
+    <h2>Cursor: <span id="number">1</span></h2>
+    <div id="fakeCursor"></div>
+
+    <script>
+      const fakeCursor = document.getElementById("fakeCursor");
+      let posX = 0;
+      let posY = 0;
+      let directionX = 1;
+      let directionY = 1;
+      let i = 1;
+
+      function changeCursor() {
+        // Change the cursor style first
+        fakeCursor.style.background = `url("${i}.png") no-repeat center center`;
+
+        // Wait for the cursor change to render, then update the number
+        requestAnimationFrame(() => {
+          document.getElementById("number").innerHTML = i;
+
+          // Cycle the value of i between 1 and 23
+          i = (i % 23) + 1;
+        });
+      }
+
+      // Change the cursor and number every 3 seconds
+      setInterval(changeCursor, 3000);
+
+      function moveCursor() {
+        // Update position
+        posX += directionX * 2; // Speed in X direction
+        posY += directionY * 2; // Speed in Y direction
+
+        // Reverse direction when reaching edges
+        if (posX <= 0 || posX >= window.innerWidth - fakeCursor.clientWidth) {
+          directionX *= -1;
+        }
+        if (posY <= 0 || posY >= window.innerHeight - fakeCursor.clientHeight) {
+          directionY *= -1;
+        }
+
+        // Apply position to the fake cursor
+        fakeCursor.style.left = posX + "px";
+        fakeCursor.style.top = posY + "px";
+
+        // Request the next animation frame
+        requestAnimationFrame(moveCursor);
+      }
+
+      // Start the cursor movement
+      moveCursor();
+    </script>
+  </body>
+</html>

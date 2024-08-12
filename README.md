@@ -22,3 +22,4 @@
 <p dir="auto">- Loading Spinner: <a href="https://x4xpfr.csb.app/" rel="nofollow">See it Live</a></p>
 <h4 dir="auto">Card</h4>
 <p dir="auto">- Animated Product Card: <a href="https://t5wjk5.csb.app/" rel="nofollow">See it Live</a></p>
+<p dir="auto">- Custom Cursor: <a href="https://xn4rv2.csb.app/" rel="nofollow">See it Live</a></p>
